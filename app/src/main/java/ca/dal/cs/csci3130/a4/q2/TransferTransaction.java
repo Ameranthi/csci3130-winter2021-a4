@@ -5,11 +5,22 @@ public class TransferTransaction implements Transaction {
     ILoyaltyCard card;
 
     public TransferTransaction(ILoyaltyCard card) {
-        //missing code
+        this.card = card;
     }
 
     @Override
     public void performTransaction(ILoyaltyCard card) {
-        //missing code
+        //grab the old card's points
+        int oldCardPoints = card.getCurrentPoints();
+
+        //add them onto the new card
+        int currentBalanceOfNewCard = this.card.getCurrentPoints();
+        int newBalanceOfNewCard = currentBalanceOfNewCard + oldCardPoints;
+
+        //set the new balance
+        this.card.setCurrentPoints(newBalanceOfNewCard);
+
+        //deduct points from the old card
+        card.setCurrentPoints(0);
     }
 }
