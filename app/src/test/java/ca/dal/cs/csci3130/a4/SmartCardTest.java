@@ -13,7 +13,7 @@ public class SmartCardTest {
     @Test
     public void testSmartCardOperation() {
         ICreditCard masterCard = new MasterCard();
-        SmartCardAdapter adapter = new SmartCardAdapter(masterCard);
+        SmartCardAdapter adapter = new SmartCardAdapter(CardConstants.CREDIT_PAYMENT);
         SmartCard smartCard = new SmartCard(adapter);
         assertTrue(smartCard.pay(CardConstants.DEBIT_PAYMENT, 100));
         assertTrue(smartCard.pay(CardConstants.CREDIT_PAYMENT, 200));

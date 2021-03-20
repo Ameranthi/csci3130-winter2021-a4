@@ -4,8 +4,17 @@ public class MasterCard implements ICreditCard {
 
     @Override
     public boolean payInCredit(int amount) {
-        //buggy code
         System.out.println("Paid by Mastercard: " + amount);
         return false;
+    }
+
+    @Override
+    public void payDebit(int amount) {
+
+    }
+
+    @Override
+    public void payCredit(int amount) {
+
     }
 }
