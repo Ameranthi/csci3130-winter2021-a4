@@ -5,21 +5,28 @@ import java.util.List;
 
 public class GoodsPreferenceManager implements IPreferenceManager {
 
-    private List<Observer> users = new ArrayList<>();
+    private List<Observer> users = new ArrayList<Observer>();
     private String message;
 
     @Override
     public void attach(Observer user) {
-        //missing code
+        users.add(user);
     }
 
     public void setMessage(String message) {
-        //missing code
+        this.message = message;
+        notifyAllUsers();
+    }
+
+    public String getMessage(){
+        return this.message;
     }
 
     @Override
     public void notifyAllUsers() {
-        //missing code
+        for(Observer user : users){
+            user.update(getMessage());
+        }
     }
 
 }
